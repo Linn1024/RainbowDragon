@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 import subprocess
 import os
 from shutil import copyfile
@@ -62,9 +62,14 @@ def changeUserName(nameEntry):
 
 def makeDir():
 	try:
+		os.mkdir('Users/' + userName)
+	except Exception as e:
+		print(e)
+	try:
 		os.mkdir('Users/' + userName + '/' + curProbName.get())
 	except Exception as e:
 		print(e)
+
 def curProbFind():
 	global curProb
 	for i in listOfProbs:
@@ -76,10 +81,11 @@ def showStatement():
 	makeDir()
 	curProbFind()
 	userPathProb = 'Users/' + userName + '/' + curProbName.get() + '/'
-	exists = os.path.isfile('"' + userPathProb + 'statement.pdf"')
+	exists = os.path.isfile('' + userPathProb + 'statement.pdf')
+	#print('"' + userPathProb + 'statement.pdf"' == 'Users/Саша Дедович/Считывание/statement.pdf')
 	print(exists)
 	if exists:
-		os.system(userPathProb + 'statement.pdf"')
+		os.system('"' + userPathProb + 'statement.pdf"')
 		return
 	sys.path.insert(0, curProb['path'])
 	import gen

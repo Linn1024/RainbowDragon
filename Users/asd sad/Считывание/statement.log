@@ -1,0 +1,709 @@
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7140 64-bit) (preloaded format=xelatex 2019.9.8)  1 NOV 2019 21:12
+entering extended mode
+**./statement.tex
+(statement.tex
+LaTeX2e <2018-12-01>
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size11.clo"
+File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cyrillic\t2aenc.def
+"
+File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
+)
+LaTeX Font Info:    Try loading font information for T2A+lmr on input line 105.
+
+LaTeX Font Info:    No file T2Almr.fd. on input line 105.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 105.
+
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cyrillic\t2acmr.fd"
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+
+LaTeX Font Warning: Font shape `T2A/lmr/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 105.
+
+) ("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
+"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) ("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.sty
+"
+Package: babel 2019/07/19 3.33 The Babel package
+ ("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\switch.def
+"
+File: switch.def 2019/07/19 3.33 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-english\engli
+sh.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2019/07/19 3.33 Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\xebabel.def
+"
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.de
+f"))
+\bbl@dirlevel=\count89
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-russian\russi
+anb.ldf"
+Language: russian 2017/08/12 1.3j Russian support for the Babel system
+Package babel Info: Making " an active character on input line 120.
+Package babel Info: Default for \cyrdash is provided on input line 157.
+))
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty
+"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.sty
+"
+Package: amstext 2000/06/29 v2.01 AMS text
+ ("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen104
+))
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+) ("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.st
+y"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
+\dotsspace@=\muskip10
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks17
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks18
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb.st
+y"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.s
+ty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (task.sty
+Package: task 
+\thelinewidth=\skip46
+\exmpwidinf=\skip47
+\exmpwidouf=\skip48
+\exmpwidewid=\skip49
+\afterproblemhead=\skip50
+\afterconstraints=\skip51
+\c@problem=\count102
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/comment\comment.sty
+"
+\CommentStream=\write3
+ Excluding comment 'comment')
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epigraph\epigraph.s
+ty"
+Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
+\beforeepigraphskip=\skip52
+\afterepigraphskip=\skip53
+\epigraphwidth=\skip54
+\epigraphrule=\skip55
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/expdlist\expdlist.s
+ty"
+Document Substyle `EXPDLIST'. Released 22.09.1999 (V 2.4)
+English Documentation  22.09.99
+\listpartsep=\skip56
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.s
+ty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
+"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.s
+ty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphi
+cs.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\xetex.
+def"
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ulem\ulem.sty"
+\UL@box=\box29
+\UL@hyphenbox=\box30
+\UL@skip=\skip57
+\UL@hook=\toks22
+\UL@height=\dimen115
+\UL@pe=\count103
+\UL@pixel=\dimen116
+\ULC@box=\box31
+Package: ulem 2012/05/18
+\ULdepth=\dimen117
+)
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/import\import.sty"
+Package: import 2009/03/23  v 5.1
+) ("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.st
+y"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks23
+\verbatim@line=\toks24
+\verbatim@in@stream=\read1
+)
+No file statement.aux.
+\openout1 = `statement.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+(problem.tex
+
+LaTeX Font Warning: Font shape `T2A/lmr/bx/n' undefined
+(Font)              using `T2A/lmr/m/n' instead on input line 1.
+
+LaTeX Font Info:    Try loading font information for T2A+lmss on input line 1.
+LaTeX Font Info:    No file T2Almss.fd. on input line 1.
+
+LaTeX Font Warning: Font shape `T2A/lmss/bx/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 1.
+
+Missing character: There is no Л in font larm1728!
+Missing character: There is no а in font larm1728!
+Missing character: There is no б in font larm1728!
+Missing character: There is no о in font larm1728!
+Missing character: There is no р in font larm1728!
+Missing character: There is no а in font larm1728!
+Missing character: There is no т in font larm1728!
+Missing character: There is no о in font larm1728!
+Missing character: There is no р in font larm1728!
+Missing character: There is no н in font larm1728!
+Missing character: There is no а in font larm1728!
+Missing character: There is no я in font larm1728!
+Missing character: There is no р in font larm1728!
+Missing character: There is no а in font larm1728!
+Missing character: There is no б in font larm1728!
+Missing character: There is no о in font larm1728!
+Missing character: There is no т in font larm1728!
+Missing character: There is no а in font larm1728!
+Missing character: There is no С in font larm1728!
+Missing character: There is no ч in font larm1728!
+Missing character: There is no и in font larm1728!
+Missing character: There is no т in font larm1728!
+Missing character: There is no ы in font larm1728!
+Missing character: There is no в in font larm1728!
+Missing character: There is no а in font larm1728!
+Missing character: There is no н in font larm1728!
+Missing character: There is no и in font larm1728!
+Missing character: There is no е in font larm1728!
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Missing character: There is no С in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no у in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no т in font larm1095!
+LaTeX Font Info:    Try loading font information for T2A+lmtt on input line 1.
+LaTeX Font Info:    No file T2Almtt.fd. on input line 1.
+
+
+LaTeX Font Warning: Font shape `T2A/lmtt/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 1.
+
+Missing character: There is no И in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no я in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no х in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no г in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no ф in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no й in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no ь in font larm1095!
+Missing character: There is no И in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no я in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no х in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no г in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no ф in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no й in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no ь in font larm1095!
+Missing character: There is no Н in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no б in font larm1095!
+Missing character: There is no х in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no ч in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no ь in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no п in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no Ф in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no р in font larm1440!
+Missing character: There is no м in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no т in font larm1440!
+Missing character: There is no в in font larm1440!
+Missing character: There is no х in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no д in font larm1440!
+Missing character: There is no н in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no г in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no ф in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no й in font larm1440!
+Missing character: There is no л in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no В in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no й in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no ж in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no я in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no щ in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no ч in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no з in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no Ф in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no р in font larm1440!
+Missing character: There is no м in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no т in font larm1440!
+Missing character: There is no в in font larm1440!
+Missing character: There is no ы in font larm1440!
+Missing character: There is no х in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no д in font larm1440!
+Missing character: There is no н in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no г in font larm1440!
+Missing character: There is no о in font larm1440!
+Missing character: There is no ф in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no й in font larm1440!
+Missing character: There is no л in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no В in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no ж in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no п in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no ж in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no п in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no я in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no з in font larm1095!
+Missing character: There is no д in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no З in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no м in font larm1440!
+Missing character: There is no е in font larm1440!
+Missing character: There is no ч in font larm1440!
+Missing character: There is no а in font larm1440!
+Missing character: There is no н in font larm1440!
+Missing character: There is no и in font larm1440!
+Missing character: There is no е in font larm1440!
+Missing character: There is no О in font larm1095!
+Missing character: There is no б in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no ь in font larm1095!
+Missing character: There is no в in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no г in font larm1095!
+Missing character: There is no у in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no е in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no п in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no м in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no ю in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no П in font larm1440!
+Missing character: There is no р in font larm1440!
+Missing character: There is no и in font larm1440!
+Missing character: There is no м in font larm1440!
+Missing character: There is no е in font larm1440!
+Missing character: There is no р in font larm1440!
+Missing character: There is no ы in font larm1440!
+
+LaTeX Font Warning: Font shape `T2A/lmtt/bx/n' undefined
+(Font)              using `T2A/lmtt/m/n' instead on input line 18.
+
+Missing character: There is no к in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no ь in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no с in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no л in font larm1095!
+Missing character: There is no ь in font larm1095!
+File: tests/1  (verbatim)
+File: tests/1.a  (verbatim)
+
+LaTeX Font Warning: Font shape `T2A/lmss/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 20.
+
+Missing character: There is no Л in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no б in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no я in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no б in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no п in font larm1095!
+Missing character: There is no о in font larm1095!
+Missing character: There is no я in font larm1095!
+Missing character: There is no з in font larm1095!
+Missing character: There is no ы in font larm1095!
+Missing character: There is no к in font larm1095!
+Missing character: There is no у in font larm1095!
+Missing character: There is no С in font larm1095!
+Missing character: There is no т in font larm1095!
+Missing character: There is no р in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no н in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no ц in font larm1095!
+Missing character: There is no а in font larm1095!
+Missing character: There is no и in font larm1095!
+Missing character: There is no з in font larm1095!
+
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 20.
+
+[1
+
+]) (statement.aux
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
+
+("C:\Users\Linn\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3041 strings out of 427669
+ 35975 string characters out of 3145156
+ 113352 words of memory out of 3000000
+ 7046 multiletter control sequences out of 15000+200000
+ 13764 words of font info for 38 fonts, out of 3000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 27i,9n,27p,229b,321s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on statement.pdf (1 page).

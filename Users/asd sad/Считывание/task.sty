@@ -259,7 +259,9 @@
 \hline
 }
 {\end{tabular}}
-
+\newcommand{\filexmp}[2]{
+	\exmp{\verbatiminput{#1}}{\verbatiminput{#2}}
+}
 \newenvironment{examplewide}[1][]{%
 \s@tm@cr@s#1\ttfamily\obeylines\obeyspaces\frenchspacing%
 \newcommand{\exmp}[2]{%
@@ -327,4 +329,3 @@
 \hfuzz=0.5pt
 
 \sloppy
-

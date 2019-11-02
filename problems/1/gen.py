@@ -10,9 +10,9 @@ macroses = {}
 upStr = ''
 	
 def makeState(name, filetex):
-	global macroses
+	global macroses, upStr
 	makeVars(name)
-	upStr = name.upper()
+#	print(f"Name: {name}, Upstr : {upStr}")
 	stateTemp = open(filetex + '/statements.tex', encoding="UTF-8").readlines()
 	probTemp = open(filetex + '/problem.tex', encoding="UTF-8").readlines()
 
@@ -33,7 +33,8 @@ def makeState(name, filetex):
 	return [probTemp, macrString + stateTemp]
 
 def makeVars(name):	
-	global rdFirstVar, rdSecondVar, rdDelimeterOne, rdDelimeterTwo
+	global rdFirstVar, rdSecondVar, rdDelimeterOne, rdDelimeterTwo, upStr
+	print(f"Upstr : {upStr}")
 	rdFirstVar = rdFirstVarChose[hashStr(upStr, 31, 2)]         
 	rdSecondVar = rdSecondVarChose[hashStr(upStr, 37, 2)]       
 	rdDelimeterOne = rdDelimeterChose[hashStr(upStr, 41, 3)]    
@@ -55,15 +56,20 @@ def hashStr(s, p, MOD):
 	h = 0
 	for i in s:
 		h = ((h * p) + ord(i) - ord('A')) % MOD
+#	print(f"String : {s}, Hash : {h}")
 	return h
 
 
 num = 1
-
 def makeTests(name, pathProb, pathUser):
+	global num, upStr
+	upStr = name.upper()
+	num = 1
 	makeVars(name)
 	makeSol(name, pathProb, pathUser)
-	from random import randint, random
+	from random import randint, random, seed
+#	print(f"Upstr : {upStr}")
+	seed(hashStr(upStr, 31, 20))
 	def printTest(test):
 		global num
 		testFile = open(pathUser + 'tests/' + str(num), 'w')
@@ -86,7 +92,7 @@ def makeTests(name, pathProb, pathUser):
 	else:
 		rdTestOne = randChar
 	if rdSecondVar == 'string':
-		rdTestTwo = lambda : randStr(randint(1, 100))
+		rdTestTwo = lambda : randStr(randint(1, 10))
 	else:
 		rdTestTwo = randDouble
 	for i in range(10):
