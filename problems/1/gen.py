@@ -1,4 +1,5 @@
 ﻿import os
+import subprocess
 rdFirstVarChose = ['int', 'char']
 rdSecondVarChose = ['string', 'float']
 rdDelimeterChose = [':', ';', '%']
@@ -98,3 +99,25 @@ def makeTests(name, pathProb, pathUser):
 	for i in range(10):
 		#print(rdTestOne, rdDelimeterOne, rdTestTwo)
 		printTest(rdTestOne() + rdDelimeterOne + rdTestTwo())
+
+def clearSol(name, pathProb, pathUser):
+	os.remove(f"{pathUser}/check.cpp")
+	os.remove(f"{pathUser}/check")
+	os.remove(f"{pathUser}/sol.cpp")
+	os.remove(f"{pathUser}/sol")
+	os.remove(f"{pathUser}/out")
+
+
+
+
+
+def checkSol(name, pathProb, pathUser):
+	global num
+	os.system(f"g++ {pathUser}/check.cpp")
+	os.system(f"gcc {pathUser}/sol.c -O sol")
+	for i in range(1, num + 1):
+		os.system(f"{pathUser}/sol < tests/{i} > out")
+		code, out, err = subprocess.run(["check", f"{pathUser}/tests/{i}", f"{pathUser}/out", f"{pathUser}/tests/{i}.a"])
+		if code != 0:
+			return f"You failed: {err}"
+	return "OK, all tests passed"

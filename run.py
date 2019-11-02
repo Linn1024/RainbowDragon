@@ -6,7 +6,8 @@ from shutil import copyfile
 userName = ""
 listOfProbs = []
 curProb = None
-curProbName = ""
+curProbName = ""        
+submitFileName = ""
 
 class Problem:
 	def __init__(self):
@@ -76,21 +77,31 @@ def curProbFind():
 		if i['name'] == curProbName.get():
 			curProb = i
 
+def makeTests():
+	global curProbName
+	makeDir()
+	curProbFind()
+	userPathProb = 'Users/' + userName + '/' + curProbName.get() + '/'	
+	sys.path.insert(0, curProb['path'])
+	import gen
+	try:
+		os.mkdir(userPathProb + 'tests')
+		gen.makeTests(userName.strip(), curProb['path'], userPathProb)
+	except Exception as e:
+		print(e)
+
 def showStatement():
 	global curProbName
 	makeDir()
 	curProbFind()
 	userPathProb = 'Users/' + userName + '/' + curProbName.get() + '/'
 	exists = os.path.isfile('' + userPathProb + 'statement.pdf')
-	#print('"' + userPathProb + 'statement.pdf"' == 'Users/Саша Дедович/Считывание/statement.pdf')
 	print(exists)
 	if exists:
 		os.system('"' + userPathProb + 'statement.pdf"')
 		return
-	sys.path.insert(0, curProb['path'])
+	makeTests()
 	import gen
-	os.mkdir(userPathProb + 'tests')
-	gen.makeTests(userName.strip(), curProb['path'], userPathProb)
 	resProb, resState = gen.makeState(userName.strip(), curProb['path'])
 	probFile = open(userPathProb + 'problem.tex', 'w', encoding="UTF-8")
 	stateFile = open(userPathProb + 'statement.tex', 'w', encoding="UTF-8")
@@ -103,10 +114,16 @@ def showStatement():
 	os.system('cd "' + userPathProb + '" && pdflatex statement.tex')
 	os.system('"' + userPathProb + 'statement.pdf"')
 	
-	
+def defineSubmitFileName(name, entry):
+	entry.delete(0, END)
+	entry.insert(0, askopenfilename())
+
+def checkSol():
+	makeTests()
+		
 
 def makeAllFields():
-	global master, curProbName
+	global master, curProbName, submitFileName
 	nameEntry = Entry(master)
 	nameEntry.grid(row=0, column=0)
 	nameEntry.insert(0, userName)
@@ -121,10 +138,22 @@ def makeAllFields():
 	optionMenuProblems.grid(row=0, column=3)
 	showStatementButton = Button(master, text="Show statement", command=showStatement)
 	showStatementButton.grid(row=1, column=1)
+	chooseFileButton = Button(master, text="Choose File", command=lambda : defineSubmitFileName(submitFileName, chooseFileEntry))
+	chooseFileButton.grid(row=2, column=0)
+	chooseFileEntry = Entry(master, width=50)
+	chooseFileEntry.grid(row=2, column=1)
+	submitFileButton = Button(master, text="Submit")
+	submitFileButton.grid(row=3, column=1)
+	logsText = Text(master, height=30, width=50, state=DISABLED)
+	logsText.grid(row=4, column=1)
+
+
 
 import os
 from tkinter import *
+from tkinter.filedialog import askopenfilename
 master = Tk()
+master.title("Rainbow Dragon prealpha 0.0.1")
 defineUser()
 findAllProblems()
 makeAllFields()
