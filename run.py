@@ -1,7 +1,7 @@
 ﻿import sys
 import subprocess
 import os
-from shutil import copyfile
+from shutil import copyfile, rmtree
 
 userName = ""
 listOfProbs = []
@@ -118,8 +118,21 @@ def defineSubmitFileName(name, entry):
 	entry.delete(0, END)
 	entry.insert(0, askopenfilename())
 
-def checkSol():
+def checkSol(sol, logsText):
+	makeDir()
+	curProbFind()
 	makeTests()
+	userPathProb = 'Users/' + userName + '/' + curProbName.get()
+	os.mkdir(f"{userPathProb}/files")	
+	for i in curProb['files'].split(','):
+		copyfile(f"{curProb['path']}{i}", f"{userPathProb}/files/{i}")
+	copyfile(sol, f"{userPathProb}/files/solution")
+	import gen
+	logsText.config(state=NORMAL)
+	logsText.delete("1.0", END)
+	logsText.insert(END, gen.checkSol(curProb['path'], userPathProb))
+	logsText.config(state=DISABLED)
+	rmtree(f'{userPathProb}/files')
 		
 
 def makeAllFields():
@@ -142,7 +155,7 @@ def makeAllFields():
 	chooseFileButton.grid(row=2, column=0)
 	chooseFileEntry = Entry(master, width=50)
 	chooseFileEntry.grid(row=2, column=1)
-	submitFileButton = Button(master, text="Submit")
+	submitFileButton = Button(master, text="Submit", command=lambda : checkSol(chooseFileEntry.get(), logsText))
 	submitFileButton.grid(row=3, column=1)
 	logsText = Text(master, height=30, width=50, state=DISABLED)
 	logsText.grid(row=4, column=1)
@@ -153,7 +166,7 @@ import os
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 master = Tk()
-master.title("Rainbow Dragon prealpha 0.0.1")
+master.title("Rainbow Dragon alpha 0.1")
 defineUser()
 findAllProblems()
 makeAllFields()

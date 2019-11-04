@@ -21,7 +21,7 @@ def makeState(name, filetex):
 	macroses['rdStudent'] = name
 	macroses['rdName'] = "Считывание"
 	rdFirstVarString = { 'int' : 'целое число n $(1 \\le n \\le 10^{10})$', 'char' : 'символ'}
-	rdSecondVarString = { 'string':  'строка', 'float' : 'вещественное число f $(1 \\le f \\le 10^{10})$'}
+	rdSecondVarString = { 'string':  'строка', 'float' : 'вещественное число f $(1 \\le f \\le 10^{5}) с двумя знаками после запятой$'}
 	macroses['rdFirstVar'] = rdFirstVarString[rdFirstVar]
 	macroses['rdSecondVar'] = rdSecondVarString[rdSecondVar]
 	macroses['rdDelimeterOne'] = rdDelimeterOne
@@ -35,11 +35,11 @@ def makeState(name, filetex):
 
 def makeVars(name):	
 	global rdFirstVar, rdSecondVar, rdDelimeterOne, rdDelimeterTwo, upStr
-	print(f"Upstr : {upStr}")
 	rdFirstVar = rdFirstVarChose[hashStr(upStr, 31, 2)]         
 	rdSecondVar = rdSecondVarChose[hashStr(upStr, 37, 2)]       
 	rdDelimeterOne = rdDelimeterChose[hashStr(upStr, 41, 3)]    
 	rdDelimeterTwo = rdDelimeterChose[hashStr(upStr, 41, 3) - 1]
+	print(f"Tests:         {rdFirstVar}    {rdSecondVar}")
 
 def replaceSol(matchobj):
 	return rdDelimeterOne if matchobj.groups()[0] == 'rdDelimeterOne' else rdDelimeterTwo
@@ -87,7 +87,9 @@ def makeTests(name, pathProb, pathUser):
 	def randChar():
 		return str(chr(60 + randint(0, 60)))
 	def randDouble():
-		return str(random() * 10 ** 10)
+		d = str(int(random() * 10 ** 7) / 10 ** 2)
+		d += '0' * (3 - len(d) + d.find('.'))
+		return d
 	if rdFirstVar == 'int':
 		rdTestOne = lambda : str(randint(1, 10 ** 10))
 	else:
@@ -100,24 +102,19 @@ def makeTests(name, pathProb, pathUser):
 		#print(rdTestOne, rdDelimeterOne, rdTestTwo)
 		printTest(rdTestOne() + rdDelimeterOne + rdTestTwo())
 
-def clearSol(name, pathProb, pathUser):
-	os.remove(f"{pathUser}/check.cpp")
-	os.remove(f"{pathUser}/check")
-	os.remove(f"{pathUser}/sol.cpp")
-	os.remove(f"{pathUser}/sol")
-	os.remove(f"{pathUser}/out")
 
-
-
-
-
-def checkSol(name, pathProb, pathUser):
+def checkSol(pathProb, pathUser):
 	global num
-	os.system(f"g++ {pathUser}/check.cpp")
-	os.system(f"gcc {pathUser}/sol.c -O sol")
+	os.chdir(f"{pathUser}/files")
+	print(os.getcwd())
+#	os.system("g++ check.cpp -o check")
+	subprocess.run(['g++', 'check.cpp', '-o', 'check'])
+	subprocess.run(['gcc', '-x', 'c', 'solution', '-o', 'sol'])
 	for i in range(1, num + 1):
-		os.system(f"{pathUser}/sol < tests/{i} > out")
-		code, out, err = subprocess.run(["check", f"{pathUser}/tests/{i}", f"{pathUser}/out", f"{pathUser}/tests/{i}.a"])
-		if code != 0:
-			return f"You failed: {err}"
+		os.system(f"sol < ../tests/{i} > out")
+		res = subprocess.run(['check', f'../tests/{i}', f'out', f'../tests/{i}.a'], capture_output=True)
+		if res.returncode != 0:
+			os.chdir('../../../../')
+			return res.stderr.decode("utf-8")
+	os.chdir('../../../../')
 	return "OK, all tests passed"

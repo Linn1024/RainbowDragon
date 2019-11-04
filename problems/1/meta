@@ -1,3 +1,4 @@
 name=Считывание
 gen=gen.py
 statement=problem.tex
+files=check.cpp,testlib.h
