@@ -10,8 +10,9 @@ rdDelimeterTwo = ''
 macroses = {}
 upStr = ''
 	
-def makeState(name, curProb, userPathProb):
+def makeState(name, curProb, userPathProb, logsText):
 	global macroses, upStr
+	logsText.setText("Statement is building")
 	makeTests(name, curProb, userPathProb)
 	makeVars(name)
 #	print(f"Name: {name}, Upstr : {upStr}")
@@ -39,6 +40,7 @@ def makeState(name, curProb, userPathProb):
 	probFile.close()
 	stateFile.close()
 	os.chdir(f"{userPathProb}")
+	logsText.clear()
 #	print(" ".join(['cd', f"{userPathProb}", "&&", "pdflatex", "statement.tex"]))
 	subprocess.run(["pdflatex", "statement.tex"])
 	os.chdir('../../../')
@@ -121,20 +123,24 @@ def makeTests(name, curProb, pathUser):
 		printTest(rdTestOne() + rdDelimeterOne + rdTestTwo())
 
 
-def checkSol(name, curProb, pathUser):
+def checkSol(name, curProb, pathUser, logsText):
 	global num
 	makeTests(name, curProb, pathUser)
 	os.chdir(f"{pathUser}/files")
 	print(os.getcwd())
+	logsText.clear()
 #	os.system("g++ check.cpp -o check")
 	subprocess.run(['g++', 'check.cpp', '-o', 'check'])
 	subprocess.run(['gcc', '-x', 'c', 'solution', '-o', 'sol'])
 	print(f"NUM :       {num}")
 	for i in range(0, num):
 		os.system(f"sol < ../tests/{i} > out")
+		logsText.addWord(f"Checking test {i}...")
 		res = subprocess.run(['check', f'../tests/{i}', f'out', f'../tests/{i}.a'], capture_output=True)
 		if res.returncode != 0:
+			logsText.addLine(res.stderr.decode("utf-8"), color="RED")
 			os.chdir('../../../../')
-			return res.stderr.decode("utf-8")
+			return "Failed"
+		logsText.addLine("OK", color="GREEN")
 	os.chdir('../../../../')
 	return "OK, all tests passed"

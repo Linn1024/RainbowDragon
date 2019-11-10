@@ -99,7 +99,7 @@ def initDir():
 	copyInitFiles(userPathProb)
 	return userPathProb
 
-def showStatement():
+def showStatement(logsText):
 	global curProbName
 	userPathProb = initDir()
 	exists = os.path.isfile(f'{userPathProb}/statement.pdf')
@@ -108,30 +108,23 @@ def showStatement():
 		os.system(f'"{userPathProb}/statement.pdf"')
 		return
 	import gen
-	if gen.makeState(userName.strip(), curProb, userPathProb):	
+	if gen.makeState(userName.strip(), curProb, userPathProb, logsText):	
 		os.system(f'"{userPathProb}/statement.pdf"')
 
 def defineSubmitFileName(name, entry):
 	entry.delete(0, END)
 	entry.insert(0, askopenfilename())
 
-def checkSol(sol, logsText):
+def checkSol(sol, statusText, logsText):
 	import time 
-	logsText.config(state=NORMAL)
-	logsText.delete("1.0", END)
-	logsText.insert(END, "Solution is checking...")
-	logsText.config(state=DISABLED)
-	master.update()
+	statusText.setText("Solution is checking...")
 	userPathProb = initDir()
 	os.mkdir(f"{userPathProb}/files")	
 	for i in curProb['files'].split(','):
 		copyfile(f"{curProb['path']}/{i}", f"{userPathProb}/files/{i}")
 	copyfile(sol, f"{userPathProb}/files/solution")
 	import gen
-	logsText.config(state=NORMAL)
-	logsText.delete("1.0", END)
-	logsText.insert(END, gen.checkSol(userName, curProb, userPathProb))
-	logsText.config(state=DISABLED)
+	statusText.setText(gen.checkSol(userName, curProb, userPathProb, logsText))
 	rmtree(f'{userPathProb}/files')
 
 def delProbFiles():
@@ -148,31 +141,53 @@ def makeAllFields():
 		nameEntry.configure(state='readonly')
 	nameOKButton = Button(master, text="OK", command=lambda : changeUserName(nameEntry))
 	nameOKButton.grid(row=0, column=1)
+
 	nameChangeButton = Button(master, text="Change", command=lambda : nameEntry.configure(state='normal'))
 	nameChangeButton.grid(row=0, column=2)
+
 	curProbName = StringVar(master)
 	optionMenuProblems = OptionMenu(master, curProbName, *[x['name'] for x in listOfProbs])
 	optionMenuProblems.grid(row=0, column=3)
-	showStatementButton = Button(master, text="Show statement", command=showStatement)
+
+	showStatementButton = Button(master, text="Show statement", command= lambda : showStatement(logsText))
 	showStatementButton.grid(row=1, column=1)
+	
 	deleteFilesButton = Button(master, text="Delete prob files", command=delProbFiles)
 	deleteFilesButton.grid(row=1, column=3)
-
-
+	
 	chooseFileButton = Button(master, text="Choose File", command=lambda : defineSubmitFileName(submitFileName, chooseFileEntry))
 	chooseFileButton.grid(row=2, column=0)
+	
 	chooseFileEntry = Entry(master, width=50)
 	chooseFileEntry.grid(row=2, column=1)
-	submitFileButton = Button(master, text="Submit", command=lambda : checkSol(chooseFileEntry.get(), logsText))
+	
+	submitFileButton = Button(master, text="Submit", command=lambda : checkSol(chooseFileEntry.get(), statusText, logsText))
 	submitFileButton.grid(row=3, column=1)
+	
+	statusText = Text(master, height=1, width=50, state=DISABLED)
+	statusText.grid(row=4, column=1)
+	
+	statusLabel = Label(master, text="Solution status")
+	statusLabel.grid(row=4, column=0)
+	
 	logsText = Text(master, height=30, width=50, state=DISABLED)
-	logsText.grid(row=4, column=1)
+	logsText.grid(row=5, column=1)
+	
+	logsLabel = Label(master, text="Logs")
+	logsLabel.grid(row=5, column=0, sticky="N")
 
+def initTextMethods():
+	for i in dir(tkinterTextMethods):
+		if i[0] == '_':
+			continue
+		setattr(Text, i, getattr(tkinterTextMethods, i))
 
 
 import os
+import tkinterTextMethods
 from tkinter import *
 from tkinter.filedialog import askopenfilename
+initTextMethods()
 master = Tk()
 master.title("Rainbow Dragon alpha 0.1")
 defineUser()
