@@ -13,7 +13,7 @@ upStr = ''
 	
 def makeButtons(master):
 	tmp = StringVar(master)
-	langOptionMenu = OptionMenu(master, tmp, *['pipka', 'lipka'])
+	langOptionMenu = OptionMenu(master, tmp, *['python', 'c'])
 	langOptionMenu.grid(row=5, column=4)
 	return tmp
 
@@ -132,32 +132,48 @@ def makeTests(name, curProb, pathUser):
 		#print(rdTestOne, rdDelimeterOne, rdTestTwo)
 		printTest(rdTestOne() + rdDelimeterOne + rdTestTwo())
 
-def compileCode(config):
+def compileCode(tools, config):
 	if tools.get() == "python":
-		return "solution.send"
-	if tools.get() == "c++":
-		subprocess.run(['gcc', '-x', 'c', 'solution.send', '-o', 'solution'])
-		return "solution"
+		pass
+	elif tools.get() == "c":
+		p = subprocess.run([config['c'], '-x', 'c', 'solution.send', '-o', 'sol'], capture_output=True)
+		if p.returncode != 0:
+			return p.stderr.decode("utf-8")
+	else:
+		return "Choose your programming language"
+	return None
 
+def runCode(tools, config, inputData):
+	if tools.get() == "python":
+		return subprocess.run([config["python"], "solution.send"], input=inputData, capture_output=True)	
+	elif tools.get() == "c":
+		return subprocess.run("sol", input=inputData, capture_output=True)	
 
-	
 
 def checkSol(name, curProb, pathUser, logsText, tools, config):
 	retString = ""
 	global num
 	print(tools)
-	#compileCode(config)
+	logsText.clear()
 	makeTests(name, curProb, pathUser)
 	os.chdir(f"{pathUser}/files")
-	logsText.clear()
+	compileErr = compileCode(tools, config)
+	if compileCode(tools, config) is not None:
+		logsText.setText(compileErr, color="RED")
+		os.chdir('../../../../')			
+		return "Compilation error"
 #	os.system("g++ check.cpp -o check")
 	subprocess.run(['g++', 'check.cpp', '-o', 'check'])
-	subprocess.run(['g++', '-x', 'c++', 'solution.send', '-o', 'sol'])
+#	subprocess.run(['gcc', '-x', 'c++', 'solution.send', '-o', 'sol'])
 	print(f"NUM :       {num}")
 	for i in range(num):
 #		subprocess.run(["echo", "%cd%"], shell=True)
 #		inputFile = open(f"../tests/{i}")
-		output = subprocess.run("sol", input=open(f"../tests/{i}", "rb").read(), capture_output=True)
+		output = runCode(tools, config, open(f"../tests/{i}", "rb").read())
+		if output.returncode != 0:
+			logsText.addLine(f'Return code {output.returncode}: {output.stderr.decode("utf-8")}', color="RED")
+			retString = "Runtime Error"
+			break
 		outFile = open("out", "wb")
 		outFile.write(output.stdout)
 		outFile.close()
