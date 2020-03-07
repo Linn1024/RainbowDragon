@@ -6,7 +6,9 @@ from shutil import copyfile, rmtree, copy
 userName = ""
 listOfProbs = []
 curProb = None
-curProbName = ""        
+curProbName = ""
+tools = None
+config = {}      
 submitFileName = ""
 
 class Problem:
@@ -25,6 +27,14 @@ def parseMeta(fileName):
 		a, b = i.split('=')
 		p[a] = b
 	return p
+
+def parseConfig():
+	f = open("config", encoding="UTF-8").readlines()
+	for i in f:
+		i = i.strip()
+		a, b = i.split('=')
+		config[a] = b
+			
 
 
 def findAllProblems():
@@ -99,6 +109,19 @@ def initDir():
 	copyInitFiles(userPathProb)
 	return userPathProb
 
+def makeInit(master):
+	global tools
+	try:
+		gen.removeButtons(master)	
+	except:
+		pass
+	initDir()
+	import gen
+	try:
+		tools = gen.makeButtons(master)
+	except:
+		tools = None
+
 def showStatement(logsText):
 	global curProbName
 	userPathProb = initDir()
@@ -115,25 +138,28 @@ def defineSubmitFileName(name, entry):
 	entry.delete(0, END)
 	entry.insert(0, askopenfilename())
 
-def checkSol(sol, statusText, logsText):
+def checkSol(sol, statusText, logsText, tools, config):
 	import time 
 	statusText.setText("Solution is checking...")
+	logsText.clear()
 	userPathProb = initDir()
 	os.mkdir(f"{userPathProb}/files")	
 	for i in curProb['files'].split(','):
 		copyfile(f"{curProb['path']}/{i}", f"{userPathProb}/files/{i}")
-	copyfile(sol, f"{userPathProb}/files/solution")
+	copyfile(sol, f"{userPathProb}/files/solution.send")
 	import gen
-	statusText.setText(gen.checkSol(userName, curProb, userPathProb, logsText))
+	statusText.setText(gen.checkSol(userName, curProb, userPathProb, logsText, tools, config))
 	rmtree(f'{userPathProb}/files')
 
 def delProbFiles():
 	curProbFind()
 	userPathProb = f'Users/{userName}/{curProbName.get()}'
-	rmtree(f"{userPathProb}")	
+	rmtree(f"{userPathProb}"	)
+
+	
 
 def makeAllFields():
-	global master, curProbName, submitFileName
+	global master, curProbName, submitFileName, tools
 	nameEntry = Entry(master)
 	nameEntry.grid(row=0, column=0)
 	nameEntry.insert(0, userName)
@@ -146,7 +172,7 @@ def makeAllFields():
 	nameChangeButton.grid(row=0, column=2)
 
 	curProbName = StringVar(master)
-	optionMenuProblems = OptionMenu(master, curProbName, *[x['name'] for x in listOfProbs])
+	optionMenuProblems = OptionMenu(master, curProbName, *[x['name'] for x in listOfProbs], command=lambda x : makeInit(master))
 	optionMenuProblems.grid(row=0, column=3)
 
 	showStatementButton = Button(master, text="Show statement", command= lambda : showStatement(logsText))
@@ -161,7 +187,7 @@ def makeAllFields():
 	chooseFileEntry = Entry(master, width=50)
 	chooseFileEntry.grid(row=2, column=1)
 	
-	submitFileButton = Button(master, text="Submit", command=lambda : checkSol(chooseFileEntry.get(), statusText, logsText))
+	submitFileButton = Button(master, text="Submit", command=lambda : checkSol(chooseFileEntry.get(), statusText, logsText, tools, config))
 	submitFileButton.grid(row=3, column=1)
 	
 	statusText = Text(master, height=1, width=50, state=DISABLED)
@@ -170,7 +196,7 @@ def makeAllFields():
 	statusLabel = Label(master, text="Solution status")
 	statusLabel.grid(row=4, column=0)
 	
-	logsText = Text(master, height=30, width=50, state=DISABLED)
+	logsText = Text(master, height=20, width=50, state=DISABLED)
 	logsText.grid(row=5, column=1)
 	
 	logsLabel = Label(master, text="Logs")
@@ -192,5 +218,6 @@ master = Tk()
 master.title("Rainbow Dragon alpha 0.1")
 defineUser()
 findAllProblems()
+parseConfig()
 makeAllFields()
 mainloop()

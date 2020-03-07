@@ -1,5 +1,6 @@
 ﻿import os
 import subprocess
+from tkinter import *
 rdFirstVarChose = ['int', 'char']
 rdSecondVarChose = ['string', 'float']
 rdDelimeterChose = [':', ';', '%']
@@ -10,6 +11,15 @@ rdDelimeterTwo = ''
 macroses = {}
 upStr = ''
 	
+def makeButtons(master):
+	tmp = StringVar(master)
+	langOptionMenu = OptionMenu(master, tmp, *['pipka', 'lipka'])
+	langOptionMenu.grid(row=5, column=4)
+	return tmp
+
+def removeButtons(master):
+	langOptionMenu
+
 def makeState(name, curProb, userPathProb, logsText):
 	global macroses, upStr
 	logsText.setText("Statement is building")
@@ -122,25 +132,43 @@ def makeTests(name, curProb, pathUser):
 		#print(rdTestOne, rdDelimeterOne, rdTestTwo)
 		printTest(rdTestOne() + rdDelimeterOne + rdTestTwo())
 
+def compileCode(config):
+	if tools.get() == "python":
+		return "solution.send"
+	if tools.get() == "c++":
+		subprocess.run(['gcc', '-x', 'c', 'solution.send', '-o', 'solution'])
+		return "solution"
 
-def checkSol(name, curProb, pathUser, logsText):
+
+	
+
+def checkSol(name, curProb, pathUser, logsText, tools, config):
+	retString = ""
 	global num
+	print(tools)
+	#compileCode(config)
 	makeTests(name, curProb, pathUser)
 	os.chdir(f"{pathUser}/files")
-	print(os.getcwd())
 	logsText.clear()
 #	os.system("g++ check.cpp -o check")
 	subprocess.run(['g++', 'check.cpp', '-o', 'check'])
-	subprocess.run(['gcc', '-x', 'c', 'solution', '-o', 'sol'])
+	subprocess.run(['g++', '-x', 'c++', 'solution.send', '-o', 'sol'])
 	print(f"NUM :       {num}")
-	for i in range(0, num):
-		os.system(f"sol < ../tests/{i} > out")
-		logsText.addWord(f"Checking test {i}...")
+	for i in range(num):
+#		subprocess.run(["echo", "%cd%"], shell=True)
+#		inputFile = open(f"../tests/{i}")
+		output = subprocess.run("sol", input=open(f"../tests/{i}", "rb").read(), capture_output=True)
+		outFile = open("out", "wb")
+		outFile.write(output.stdout)
+		outFile.close()
+		logsText.addLine(f"Checking test {i}...")
 		res = subprocess.run(['check', f'../tests/{i}', f'out', f'../tests/{i}.a'], capture_output=True)
 		if res.returncode != 0:
 			logsText.addLine(res.stderr.decode("utf-8"), color="RED")
-			os.chdir('../../../../')
-			return "Failed"
+			retString = "Failed"
+			break
 		logsText.addLine("OK", color="GREEN")
+	else:
+		retString = "OK, all tests passed"
 	os.chdir('../../../../')
-	return "OK, all tests passed"
+	return retString
